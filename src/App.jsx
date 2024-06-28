@@ -24,38 +24,32 @@ function App() {
   }
 
   const formatAndSetCodigo = async () => {
-    const partes = data.split('-');
-    const dataFormatada = `${partes[2]}/${partes[1]}/${partes[0]}`;
+  const partes = data.split('-');
+  const dataFormatada = `${partes[2]}/${partes[1]}/${partes[0]}`;
 
-    const novoCodigo = `<div class="card-evento">
-            <img src=${link} width="320px">
-            <h3 class="titulo-card-evento">
-                ${nome}
-            </h3>
+  const novoCodigo = `
+    <div class="card-evento">
+      <img src="${link}" width="320px">
+      <h3 class="titulo-card-evento">${nome}</h3>
+      <span class="evento-descricao">${descricao}</span>
+      <span class="evento-infos">${dataFormatada}</span>
+      <span class="evento-infos">${horario}</span>
+      <a class="botao-evento-link" href="https://www.instagram.com/vivaopenmall/" target="_blank">Saiba mais!</a>
+    </div>
+  `;
 
-            <span class="evento-descricao">
-                ${descricao}
-            </span>
+  setCodigo(novoCodigo);
 
-            <span class= "evento-infos">${data}</span>
-            <span class= "evento-infos">${horario}</span>
-
-            <a class="botao-evento-link" href="https://www.instagram.com/vivaopenmall/" target="_blank">Saiba mais!</a>
-        </div>`;
-
-    setCodigo(novoCodigo);
-
-    // Aguarde o estado ser atualizado antes de copiar para o clipboard
-    setTimeout(async () => {
-      try {
-        await navigator.clipboard.writeText(novoCodigo);
-        setCopied(true);
-        //setTimeout(() => setCopied(false), 2000); // Reinicia o estado de 'copied' após 2 segundos
-      } catch (err) {
-        console.error('Falha ao copiar para o clipboard:', err);
-      }
-    }, 0);
-  };
+  // Aguarde o estado ser atualizado antes de copiar para o clipboard
+  setTimeout(async () => {
+    try {
+      await navigator.clipboard.writeText(novoCodigo);
+      setCopied(true);
+    } catch (err) {
+      console.error('Falha ao copiar para o clipboard:', err);
+    }
+  }, 0);
+};
 
   return (
     <section>

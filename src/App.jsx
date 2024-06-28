@@ -28,17 +28,17 @@ function App() {
     const dataFormatada = `${partes[2]}/${partes[1]}/${partes[0]}`;
 
     const novoCodigo = `<div class="card-evento">
-            <img src={link} width="320px">
+            <img src=${link} width="320px">
             <h3 class="titulo-card-evento">
-                {nome}
+                ${nome}
             </h3>
 
             <span class="evento-descricao">
-                {descricao}
+                ${descricao}
             </span>
 
-            <span class= "evento-infos">{data}</span>
-            <span class= "evento-infos">{horario}</span>
+            <span class= "evento-infos">${data}</span>
+            <span class= "evento-infos">${horario}</span>
 
             <a class="botao-evento-link" href="https://www.instagram.com/vivaopenmall/" target="_blank">Saiba mais!</a>
         </div>`;
